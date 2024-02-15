@@ -1,0 +1,50 @@
+.card {
+  border-top: 1px solid var(--color-tan);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 7vw;
+}
+
+.active {
+  font-size: 14px;
+  color: rgba(34, 221, 42, 0.75);
+}
+
+.inactive {
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(223, 15, 15, 0.75);
+}
+
+.project-description {
+  font-family: Mulish, sans-serif;
+  font-weight: 400;
+  font-size: 16.24px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 5vh;
+}
+
+.edit-button {
+  width: 103px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 10.29px;
+  background: var(--color-tan);
+  color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+}

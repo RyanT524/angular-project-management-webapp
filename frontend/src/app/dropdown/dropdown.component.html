@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="menu">
+    <div class="label" (click)="toggleMenu()">
+      <div class="title">
+        <div *ngIf="!isSelection()">Pick an option</div>
+        <div *ngIf="isSelection()">{{ selection }}</div>
+      </div>
+      <img src="assets/Vector.svg" [ngClass]="isMenuOpen ? 'open' : ''" />
+    </div>
+    <div class="options" *ngIf="isMenuOpen">
+      <div *ngFor="let option of options">
+        <div (click)="onClick(option)">{{ option }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="button" (click)="emitSelection()" *ngIf="isButton()">
+    {{ button }}
+  </div>
+</div>

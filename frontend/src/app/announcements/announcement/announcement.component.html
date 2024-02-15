@@ -1,0 +1,12 @@
+<div class="announcement">
+	<div class="announcement-header">
+		<div>{{ announcement.author.profile.firstName }}</div>
+		<div class="date">{{ announcement.date | date: 'MMMM d, y' }}</div>
+	</div>
+	<div class="announcement-title">
+		{{ announcement.title }}
+	</div>
+	<div class="announcement-message">
+		{{ announcement.message }}
+	</div>
+</div>

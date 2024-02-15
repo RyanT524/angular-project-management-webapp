@@ -1,0 +1,13 @@
+<div class="card">
+  <div>
+    <div class="project-header">
+      <h2>{{ project.name }}</h2>
+      <span *ngIf="project.active" class="active">Active</span>
+      <span *ngIf="!project.active" class="inactive">Inactive</span>
+    </div>
+    <div class="project-description">
+      {{ project.description }}
+    </div>
+  </div>
+  <div class="edit-button" (click)="handleEditButton()">Edit</div>
+</div>

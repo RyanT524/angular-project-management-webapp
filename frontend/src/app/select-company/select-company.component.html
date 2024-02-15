@@ -1,0 +1,7 @@
+<div class="container">
+  <h2>Select Company</h2>
+  <app-dropdown
+    [options]="companyNames"
+    (passSelection)="onSubmit($event)"
+  ></app-dropdown>
+</div>

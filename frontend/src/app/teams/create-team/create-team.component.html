@@ -1,0 +1,46 @@
+<div class="create-team-overlay">
+  <img
+    class="close-icon"
+    (click)="onClose()"
+    src="../../../assets/close-icon.svg"
+  />
+  <form class="create-team-form" [formGroup]="createTeamForm">
+    <label for="teamName">Team Name</label>
+    <input
+      class="input-style"
+      formControlName="name"
+      name="teamName"
+      type="text"
+    />
+    <label for="description">Description</label>
+    <input
+      class="input-style"
+      formControlName="description"
+      name="description"
+      type="text"
+    />
+    <h2>Select Members</h2>
+    <app-dropdown
+      [options]="userDisplayNames"
+      [isMultipleChoice]="true"
+      (passSelection)="onClick($event)"
+    ></app-dropdown>
+    <div class="name-cards">
+      <ng-container *ngFor="let user of teamToCreate.teammates">
+        <div class="name-row">
+          <app-name-card
+            [firstName]="user.profile.firstName"
+            [lastName]="user.profile.lastName"
+          ></app-name-card>
+          <img
+            class="remove-user-button"
+            src="../../../assets/close-icon.svg"
+            (click)="removeTeamMember(user)"
+          />
+        </div>
+      </ng-container>
+    </div>
+
+    <button class="button" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

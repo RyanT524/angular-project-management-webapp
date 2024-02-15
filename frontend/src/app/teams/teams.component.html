@@ -1,0 +1,22 @@
+<app-navbar> </app-navbar>
+<h1>Teams</h1>
+<div class="teams-container">
+  <app-team-card
+    *ngFor="let team of this.teams"
+    [team]="team"
+    (click)="navigateToProjectView(team)"
+  ></app-team-card>
+  <div
+    *ngIf="userIsAdmin"
+    class="add-team-card"
+    (click)="createTeamShown = true"
+  >
+    <img class="plus-sign" src="../../assets/plus-sign.svg" />
+    <p>New Team</p>
+  </div>
+</div>
+
+<app-create-team
+  *ngIf="createTeamShown"
+  (close)="closeModal()"
+></app-create-team>

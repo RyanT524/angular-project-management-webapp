@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="header">
+    <div class="title">Announcements</div>
+    <div *ngIf="userIsAdmin" class="create">
+      <div class="button" (click)="toggleCreate()">New</div>
+      <app-create-announcement
+        class="create-popup"
+        *ngIf="isCreateShown"
+        (closeCreate)="closeCreate()"
+        (loadAnnouncements)="loadAnnouncements()"
+      ></app-create-announcement>
+    </div>
+  </div>
+  <hr />
+  <div class="content" *ngFor="let announcement of announcements">
+    <app-announcement [announcement]="announcement"></app-announcement>
+  </div>
+</div>

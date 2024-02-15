@@ -1,0 +1,35 @@
+<div class="login-page">
+    <div class="login-title">
+        <p class="title1">
+            COOK SYSTEMS
+        </p>
+        <p class="title2">
+            A FINAL APP
+        </p>
+    </div>
+    <div class="login-login">
+        <div class="login-pic-background">
+            <div class="login-pic">
+                <img src="../../assets/logo.svg" alt="logo!">
+            </div>
+        </div>
+        <div class="login-input">
+            <input type="text" placeholder="username" [(ngModel)]="username">
+            <div class="input-line"></div>
+        </div>
+        <div class="login-input">
+            <input type="password" placeholder="password" [(ngModel)]="password">
+            <div class="input-line"></div>
+        </div>
+
+        <div class="login-popup" *ngIf="showLoginError">
+            <div class="login-popup-text">
+                <p>Username or Password is incorrect</p>
+            </div>
+        </div>
+
+        <div>
+            <button (click)="checkLogin()">LOGIN</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="team-card">
+  <div class="card-header">
+    <h2>{{ this.team.name }}</h2>
+    <!-- TODO: Get projects -->
+    <span># of projects: {{ this.projectCount }}</span>
+  </div>
+  <h3>Members</h3>
+  <div class="names">
+    <app-name-card
+      *ngFor="let user of this.team.teammates"
+      [firstName]="user.profile.firstName"
+      [lastName]="user.profile.lastName"
+    ></app-name-card>
+  </div>
+</div>

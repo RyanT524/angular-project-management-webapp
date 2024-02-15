@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="exit">
+    <img src="assets/exit-circle.svg" (click)="passCloseCreate()" />
+  </div>
+  {{ currentUserFullName }}
+  <form class="form" [formGroup]="createForm">
+    <div class="form-entry">
+      <label for="title">Title</label>
+      <input type="text" name="title" formControlName="title" />
+    </div>
+    <div class="form-entry">
+      <label for="message">Message</label>
+      <input type="text" name="message" formControlName="message" />
+    </div>
+    <button class="button" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

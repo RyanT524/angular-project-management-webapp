@@ -1,0 +1,9 @@
+.name-card {
+  width: 103px;
+  height: 32px;
+  border-radius: 10.29px;
+  background: var(--color-teal);
+  text-align: center;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.75);
+}

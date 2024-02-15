@@ -1,0 +1,133 @@
+.login-page {
+  font-family: Mulish;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.login-title {
+  text-align: center;
+}
+
+.title1 {
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 108px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: var(--color-teal);
+}
+
+.title2 {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 72px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: var(--color-teal);
+}
+
+.login-login {
+  border: 5px solid var(--color-tan);
+  box-shadow: 4px 4px 10px 5px #cbcbcb7d;
+  width: 660px;
+  height: 604px;
+  top: 323px;
+  left: 534px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-pic-background {
+  border-radius: 100%;
+  width: 168px;
+  height: 168px;
+  top: 357px;
+  left: 780px;
+  background: #0d3a59;
+  margin: 30px 30px 50px 30px;
+}
+
+.login-pic {
+  width: 137px;
+  height: 92.61px;
+  top: 390px;
+  left: 794px;
+}
+
+.login-input {
+  border: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.login-input input {
+  font-family: Mulish;
+  border: none;
+  outline: none;
+  padding: 5px;
+  margin-bottom: 10px;
+  background: transparent;
+  color: var(--color-teal);
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-input input::placeholder {
+  color: var(--color-teal);
+}
+
+.input-line {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  height: 5px;
+  background-color: #ffffffbf;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.login-login button {
+  font-family: Mulish;
+  margin-top: 60px;
+  border: 2px solid var(--color-teal);
+  background: transparent;
+  width: 160px;
+  height: 52px;
+  top: 824px;
+  left: 784px;
+  padding: 0px, 55px, 0px, 53px;
+  border-radius: 50px;
+  gap: 8px;
+  color: #ffffffbf;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-login button:hover {
+  background-color: var(--color-teal);
+  color: #ffffff;
+}
+
+.login-popup {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+.login-popup-text {
+  position: absolute;
+  color: red;
+}

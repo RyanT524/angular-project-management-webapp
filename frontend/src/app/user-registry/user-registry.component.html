@@ -1,0 +1,227 @@
+<app-navbar></app-navbar>
+
+<div class="reg-page">
+    <div class="reg-title">
+        <p class="title1">
+            User Registry
+        </p>
+        <p class="title2">
+            A general view of all your members in your organization
+        </p>
+    </div>
+
+    <div class="reg-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Team</th>
+                    <th>Active</th>
+                    <th>Admin</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="reg-users-display">
+                <tr *ngFor="let data of userData">
+                    <td>{{ data.profile.firstName + ' ' + data.profile.lastName }}</td>
+                    <td>{{ data.profile.email }}</td>
+
+                    <td>{{ (data.teams && data.teams[0]) ? data.teams[0].name : '' }}</td>
+
+                    <td>
+                        <span [style.color]="data.active ? '#00B11C' : '#FF0000'">
+                            {{ data.active ? 'YES' : 'NO' }}
+                        </span>
+                    </td>
+                    <td>
+                        <span [style.color]="data.admin ? '#00B11C' : '#FF0000'">
+                            {{ data.admin ? 'YES' : 'NO' }}
+                        </span>
+                    </td>
+                    <td>{{ data.status }}</td>
+                    <td>
+                        <img src="../../assets/edit-icon.png" class="table-icon" alt="edit"
+                            (click)="openEditUserOverlay(data)">
+                    </td>
+                    <td>
+                        <img src="../../assets/delete-icon.png" class="table-icon" alt="delete"
+                            (click)="openDeleteUserOverlay(data)">
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="openAddUserOverlay()">ADD USER</button>
+    </div>
+</div>
+
+<!-- Add User Overlay -->
+<div *ngIf="addOverlayVisible" class="overlay-page">
+    <div class="overlay-content">
+        <div class="overlay-content-innards">
+
+            <div class="close-button" (click)="closeAddUserOverlay()">
+                <div class="close-circle">
+                    <div class="close-cross">
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overlay-input">
+                <div class="overlay-input-line">
+                    <input type="text" placeholder="first name" [(ngModel)]="newUser.firstName">
+                    <div class="input-line"></div>
+                </div>
+
+                <div class="overlay-input-line">
+                    <input type="text" placeholder="last name" [(ngModel)]="newUser.lastName">
+                    <div class="input-line"></div>
+                </div>
+            </div>
+
+            <div class="overlay-input">
+                <div class="overlay-input-line">
+                    <input type="text" placeholder="email" [(ngModel)]="newUser.email">
+                    <div class="input-line"></div>
+                </div>
+            </div>
+
+            <div class="overlay-input">
+                <div class="overlay-input-line">
+                    <input type="password" placeholder="password" [(ngModel)]="newUser.password">
+                    <div class="input-line"></div>
+                </div>
+                <div class="overlay-input-line">
+                    <input type="password" placeholder="confirm password" [(ngModel)]="newUser.confirmPassword">
+                    <div class="input-line"></div>
+                </div>
+            </div>
+
+            <div class="overlay-text">
+                <p>Make user an admin role?</p>
+            </div>
+
+            <div class="admin-bool">
+                <select name="make-admin" id="make-admin" [(ngModel)]="newUser.admin" (focus)="onSelectFocus()">
+                    <option *ngIf="!selectedOption" value="" disabled selected>Pick an option</option>
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+            </div>
+
+            <div class="overlay-text" *ngIf="!passwordsMatch">
+                <div class="overlay-error">
+                    <p>Passwords do not match</p>
+                </div>
+            </div>
+            <div class="overlay-text" *ngIf="!firstNameExist">
+                <div class="overlay-error">
+                    <p>Please enter a first name</p>
+                </div>
+            </div>
+            <div class="overlay-text" *ngIf="!lastNameExist">
+                <div class="overlay-error">
+                    <p>Please enter a last name</p>
+                </div>
+            </div>
+            <div class="overlay-text" *ngIf="!emailExist">
+                <div class="overlay-error">
+                    <p>Please enter an email</p>
+                </div>
+            </div>
+            <div class="overlay-text" *ngIf="!passwordExist">
+                <div class="overlay-error">
+                    <p>Please enter a password</p>
+                </div>
+            </div>
+            <div class="overlay-text" *ngIf="!adminExist">
+                <div class="overlay-error">
+                    <p>Please select an admin option</p>
+                </div>
+            </div>
+            <div>
+                <button (click)="submitUser()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit User Overlay -->
+<div *ngIf="editOverlayVisible" class="overlay-page">
+    <div class="overlay-content">
+        <div class="overlay-content-innards">
+
+            <div class="close-button" (click)="closeEditUserOverlay()">
+                <div class="close-circle">
+                    <div class="close-cross">
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overlay-input">
+                <div class="overlay-input-line">
+                    <input type="text" placeholder="first name" [(ngModel)]="editUser.firstName">
+                    <div class="input-line"></div>
+                </div>
+
+                <div class="overlay-input-line">
+                    <input type="text" placeholder="last name" [(ngModel)]="editUser.lastName">
+                    <div class="input-line"></div>
+                </div>
+            </div>
+
+            <div class="overlay-input">
+                <div class="overlay-input-line">
+                    <input type="text" placeholder="email" [(ngModel)]="editUser.email">
+                    <div class="input-line"></div>
+                </div>
+            </div>
+
+            <div class="overlay-input">
+                <div class="overlay-input-line">
+                    <input type="text" placeholder="phone" [(ngModel)]="editUser.phoneNumber">
+                    <div class="input-line"></div>
+                </div>
+            </div>
+
+            <div class="admin-bool">
+                <div class="overlay-text">
+                    <p>Admin Status</p>
+                </div>
+                <select name="admin" [(ngModel)]="editUser.admin">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+
+            <div>
+                <button (click)="editUserApply()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete User Overlay -->
+<div *ngIf="deleteOverlayVisible" class="overlay-page">
+    <div class="overlay-content">
+        <div class="overlay-content-innards">
+
+            <div class="admin-bool">
+                <div class="overlay-text">
+                    <p>Are you sure you want to delete {{deleteUser.userToDelete}} from existence?</p>
+                </div>
+                <div class="delete-overlay-buttons">
+                    <button (click)="deleteUserApply()">Delete!</button>
+                    <button (click)="closeDeleteUserOverlay()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

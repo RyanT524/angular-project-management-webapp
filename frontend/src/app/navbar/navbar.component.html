@@ -1,0 +1,36 @@
+<nav id="navbar">
+  <ul>
+    <li class="logo-admin">
+      <img
+        class="logo"
+        src="../../assets/logo.svg"
+        [routerLink]="['/announcements']"
+      />
+      <div class="admin-text" *ngIf="currentUser?.admin">ACTING AS ADMIN</div>
+      <div class="admin-text" *ngIf="!currentUser?.admin">
+        {{ currentUser?.profile?.firstName }}
+        {{ currentUser?.profile?.lastName! | nameToInitial }}
+      </div>
+    </li>
+    <li class="hamburger" (click)="toggleMenu()">
+      <img src="../../assets/hamburger.svg" />
+    </li>
+    <li class="menu" [class.is-open]="isMenuOpen">
+      <a class="menu-item" [routerLink]="['/announcements']">Home</a>
+      <a
+        class="menu-item"
+        *ngIf="currentUser?.admin"
+        [routerLink]="['/select-company']"
+        >Company</a
+      >
+      <a class="menu-item" [routerLink]="['/teams']">Teams</a>
+      <a
+        class="menu-item"
+        *ngIf="currentUser?.admin"
+        [routerLink]="['/user-registry']"
+        >Users</a
+      >
+      <a class="menu-item no-border" (click)="handleLogout()">Logout</a>
+    </li>
+  </ul>
+</nav>

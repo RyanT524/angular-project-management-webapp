@@ -1,0 +1,26 @@
+<app-navbar> </app-navbar>
+<h2 class="back-button" (click)="navigateToTeams()">< Back</h2>
+<h1>Projects for {{ team?.name }}</h1>
+<div class="project-list">
+  <div
+    *ngIf="userIsAdmin"
+    class="new-project-button"
+    (click)="createProjectShown = true"
+  >
+    New
+  </div>
+  <app-project-card
+    *ngFor="let project of projects"
+    [project]="project"
+    (edit)="openEditDialogue($event)"
+  ></app-project-card>
+</div>
+<app-create-project
+  *ngIf="createProjectShown"
+  (close)="closeCreateProject()"
+></app-create-project>
+<app-edit-project
+  *ngIf="editProjectShown"
+  [project]="projectToEdit"
+  (close)="closeEditProject()"
+></app-edit-project>

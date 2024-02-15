@@ -1,0 +1,31 @@
+<div class="edit-project-overlay">
+  <img
+    class="close-icon"
+    (click)="onClose()"
+    src="../../../assets/close-icon.svg"
+  />
+  <form class="edit-project-form" [formGroup]="editProjectForm">
+    <label for="projectName">Project Name</label>
+    <input
+      class="project-input-style"
+      formControlName="name"
+      name="projectName"
+      type="text"
+    />
+    <label for="description">Description</label>
+    <input
+      class="input-style"
+      formControlName="description"
+      name="description"
+      type="text"
+    />
+
+    <h2 *ngIf="userIsAdmin">Active?</h2>
+    <select *ngIf="userIsAdmin" id="active" formControlName="active">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+
+    <button class="button" (click)="onSubmit()" type="button">Submit</button>
+  </form>
+</div>

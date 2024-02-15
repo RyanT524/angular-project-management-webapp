@@ -1,0 +1,46 @@
+.team-card {
+  width: 313px;
+  height: 241px;
+  background-color: var(--color-navy);
+  border-radius: 20px;
+}
+
+.team-card:hover {
+  cursor: pointer;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-tan);
+  padding: 10px 30px;
+  font-size: 16.24px;
+  font-weight: 400;
+}
+
+.card-header span {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+h2 {
+  font-family: Mulish, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+h3 {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16.24px;
+  text-align: center;
+  margin: 15px 0 20px 0;
+}
+
+.names {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 22px;
+  justify-content: space-around;
+  row-gap: 26px;
+}

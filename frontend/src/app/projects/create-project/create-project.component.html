@@ -1,0 +1,25 @@
+<div class="create-project-overlay">
+  <img
+    class="close-icon"
+    (click)="onClose()"
+    src="../../../assets/close-icon.svg"
+  />
+  <form class="create-project-form" [formGroup]="createProjectForm">
+    <label for="projectName">Project Name</label>
+    <input
+      class="project-input-style"
+      formControlName="name"
+      name="projectName"
+      type="text"
+    />
+    <label for="description">Description</label>
+    <input
+      class="input-style"
+      formControlName="description"
+      name="description"
+      type="text"
+    />
+
+    <button class="button" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,66 @@
+.create-project-overlay {
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  height: auto;
+  max-width: 488.52px;
+  background-color: var(--color-navy);
+  border-radius: 20px;
+}
+
+.close-icon {
+  display: block;
+  margin-left: auto;
+}
+
+.close-icon:hover {
+  cursor: pointer;
+}
+
+.create-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  max-width: 313px;
+  margin: 30px auto;
+}
+
+label {
+  font-size: 16.24px;
+  color: var(--color-tan);
+}
+
+.input-style {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--color-tan);
+  color: #ffffff;
+  font-size: 16.24px;
+}
+
+.project-input-style {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--color-tan);
+  color: #ffffff;
+  font-size: 24px;
+}
+
+button {
+  width: 199px;
+  height: 45px;
+  border-radius: 10.29px;
+  align-self: center;
+  font-size: 16.24px;
+  border: none;
+  margin-top: 30px;
+}
+
+button:hover {
+  cursor: pointer;
+}
